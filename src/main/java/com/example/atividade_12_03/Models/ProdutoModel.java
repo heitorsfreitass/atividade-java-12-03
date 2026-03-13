@@ -1,15 +1,13 @@
 package com.example.atividade_12_03.Models;
 
+import com.example.atividade_12_03.Enums.StatusDoProdutoEnum;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class ProdutoModel {
-    public ProdutoModel() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,6 +15,19 @@ public class ProdutoModel {
     private String nome;
     private Double preco;
     private Integer quantidadeEmEstoque;
+
+    public StatusDoProdutoEnum getStatusDoProdutoEnum() {
+        return statusDoProdutoEnum;
+    }
+
+    public void setStatusDoProdutoEnum(StatusDoProdutoEnum statusDoProdutoEnum) {
+        this.statusDoProdutoEnum = statusDoProdutoEnum;
+    }
+
+    private StatusDoProdutoEnum statusDoProdutoEnum;
+
+    public ProdutoModel() {
+    }
 
     public Long getId() {
         return id;

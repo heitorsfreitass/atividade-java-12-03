@@ -20,13 +20,13 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public ProdutoModel atualizarProduto(ProdutoModel produto, Long id) {
+    public ProdutoModel atualizarProduto(Long id, ProdutoModel produto) {
         ProdutoModel newProduto = produtoRepository.findById(id).get();
         newProduto.setNome(produto.getNome());
         newProduto.setPreco(produto.getPreco());
         newProduto.setQuantidadeEmEstoque(produto.getQuantidadeEmEstoque());
 
-        return produtoRepository.save(produto);
+        return produtoRepository.save(newProduto);
     }
 
     public void deletarProduto(Long id) {
